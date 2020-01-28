@@ -1,0 +1,39 @@
+CREATE DATABASE Optus_tarde;
+
+USE Optus_tarde;
+
+CREATE TABLE Artistas (
+	IdArtistas INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE Estilos (
+	IdEstilos INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE Albuns (
+	IdAlbuns INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(200) NOT NULL,
+	DataLancamento INT,
+	IdArtistas INT FOREIGN KEY REFERENCES Artistas (IdArtistas),
+	IdEstilos INT FOREIGN KEY REFERENCES Estilos (IdEstilos)
+);
+
+
+
+CREATE TABLE TipoUsuario (
+	IdTipoUsuario INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(200) NOT NULL
+);
+
+
+CREATE TABLE Usuario (
+	IdUsuario INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(200) NOT NULL,
+	IdTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario (IdTipoUsuario)
+);
+
+
+
+
