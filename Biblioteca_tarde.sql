@@ -24,13 +24,6 @@ CREATE TABLE Livros (
 	IdGenero	INT FOREIGN KEY REFERENCES Generos (IdGenero)
 );
 
-
-SELECT * FROM Generos;
-SELECT * FROM Autores;
-SELECT * FROM Livros;
-
-
-
  -- ALTERAR: ADICIONAR NOVA COLUNA
  ALTER TABLE Generos
  ADD Descricao VARCHAR(255)
@@ -75,3 +68,14 @@ WHERE IdLivro = '2';
 
 DELETE FROM Autores
 WHERE IdAutor = 4;
+
+--DQL 
+SELECT Nome FROM Generos;
+SELECT NomeAutor FROM Autores;
+SELECT Titulo FROM Livros;
+
+SELECT Titulo, IdAutor FROM Livros;
+
+SELECT Titulo, IdGenero FROM Livros;
+
+SELECT Titulo, IdAutor, IdGenero FROM Livros;

@@ -41,11 +41,6 @@ CREATE TABLE Usuario (
 
 
 --DML LINGUAGEM DE MANIPULAÇAO DE DADOS
-SELECT * FROM Artistas;
-SELECT * FROM Estilos;
-SELECT * FROM Albuns;
-SELECT * FROM TipoUsuario;
-SELECT * FROM Usuario;
 
 -- COMANDO DE INSERIR DADOS
 INSERT INTO Estilos (Nome)
@@ -54,11 +49,17 @@ VALUES ('Samba'), ('Pagode'), ('MPB'), ('Rock');
 INSERT INTO Estilos (Nome)
 VALUES ('Indie');
 
+INSERT INTO Estilos (Nome)
+VALUES ('Pop');
+
 INSERT INTO Artistas (Nome)
 VALUES ('Zeca Pagodinho'), ('Tiaguinho'), ('Caetano Veloso'), ('Legião Urbana'); 
 
 INSERT INTO Artistas (Nome)
 VALUES ('Imagine Dragons');
+
+INSERT INTO Artistas (Nome)
+VALUES ('Halsey');
 
 INSERT INTO Albuns (Nome, DataLancamento, IdArtista, IdEstilo)
 VALUES ('Eu Cansei', '25/01/2020', 2, 2),
@@ -68,6 +69,12 @@ VALUES ('Eu Cansei', '25/01/2020', 2, 2),
 
 INSERT INTO Albuns (Nome, DataLancamento, IdArtista, IdEstilo)
 VALUES ('Evolve', '22/10/2017', 5, 5);
+
+INSERT INTO Albuns (Nome, DataLancamento, IdArtista, IdEstilo)
+VALUES ('Maniac', '25/01/2020', 6, 6);
+
+INSERT INTO Albuns (Nome, DataLancamento, IdArtista, IdEstilo)
+VALUES ('Night Visios', '02/03/2019', 5, 5);
 
 
 INSERT INTO TipoUsuario (Nome)
@@ -103,6 +110,68 @@ UPDATE Albuns
 SET DataLancamento = '06/07/2020'
 WHERE IdAlbuns = 4;
 
-
 -- LIMPAR TODOS OS DADOS DA TABELA
 TRUNCATE TABLE Albuns;
+
+-- DQL LINGUAGEM DE CONSULTA DE DADOS 
+SELECT * FROM Artistas;
+SELECT * FROM Estilos;
+SELECT * FROM TipoUsuario;
+SELECT * FROM Usuario;
+
+SELECT Nome FROM Artistas;
+
+SELECT Nome, DataLancamento FROM Albuns;
+
+--Operadores < > =
+SELECT * FROM Albuns WHERE IdAlbuns = 1;
+
+SELECT * FROM Albuns WHERE IdAlbuns > 1;
+
+-- OR OU
+
+SELECT Nome, DataLancamento FROM Albuns 
+WHERE (DataLancamento IS NULL); 
+
+-- LIKE Comparacao de texto 
+
+SELECT IdAlbuns, Nome FROM  Albuns
+WHERE Nome LIKE 'É%' -- começo da frase
+
+SELECT IdAlbuns, Nome FROM  Albuns
+WHERE Nome LIKE '%Brasil' -- fim da fase
+
+SELECT IdAlbuns, Nome FROM  Albuns
+WHERE Nome LIKE '%Cansei%' -- meio da frase
+
+-- ORDENAÇAO
+
+SELECT Nome FROM Albuns
+ORDER BY Nome;
+
+SELECT IdAlbuns FROM Albuns
+ORDER BY IdAlbuns;
+
+--Ordenacao invertida (maior pro menor)
+
+SELECT IdAlbuns, Nome FROM Albuns
+ORDER BY IdAlbuns DESC;
+
+SELECT IdAlbuns, Nome, DataLancamento FROM Albuns
+ORDER BY DataLancamento ASC;
+
+--COUNT
+
+SELECT COUNT(IdAlbuns) FROM Albuns;
+
+
+SELECT * FROM Albuns WHERE IdArtista = 5;
+
+SELECT * FROM Albuns WHERE DataLancamento = '25/01/2020';
+
+SELECT * FROM Albuns WHERE IdEstilo = 2;
+
+SELECT Nome, IdArtista, DataLancamento FROM Albuns
+ORDER BY DataLancamento DESC;
+
+
