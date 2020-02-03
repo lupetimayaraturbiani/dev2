@@ -21,7 +21,7 @@ CREATE TABLE CNH(
 
 CREATE TABLE Telefones(
 	IdTelefone  INT PRIMARY KEY IDENTITY,
-	Descricao	VArCHAR(100),
+	Descricao	VARCHAR(100),
 	IdPessoas	INT FOREIGN KEY REFERENCES Pessoas (IdPessoa)
 );
 
@@ -60,3 +60,32 @@ SELECT * FROM Pessoas;
 SELECT * FROM Emails;
 SELECT * FROM CNH;
 SELECT * FROM Telefones;
+
+UPDATE Telefones
+SET Descricao = '254678990'
+WHERE IdTelefone = 3;
+
+INSERT INTO Emails(Descricao, IdPessoa)
+VALUES ('gabriel.nogueira@gmail.com', 3);
+
+INSERT INTO Telefones(Descricao, IdPessoas)
+VALUES ('35671288', 3);
+
+INSERT INTO Telefones(Descricao, IdPessoas)
+VALUES ('72211445', 3);
+
+DELETE FROM Emails
+WHERE IdEmail = 2;
+
+DELETE FROM CNH
+WHERE IdCNH = 4;
+
+DELETE FROM Telefones
+WHERE IdTelefone = 5;
+
+SELECT * FROM Emails WHERE IdPessoa = 3;
+
+SELECT * FROM Telefones WHERE IdPessoas = 3;
+
+SELECT IdPessoa, Descricao FROM CNH;
+

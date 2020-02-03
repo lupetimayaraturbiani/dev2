@@ -164,14 +164,40 @@ ORDER BY DataLancamento ASC;
 
 SELECT COUNT(IdAlbuns) FROM Albuns;
 
-
+-- SELECIONAR ALBUNS DO MESMO ARTISTA
 SELECT * FROM Albuns WHERE IdArtista = 5;
 
+-- USANDO INNER JOIN (JUNCAO DE UMA OU MAIS TABELAS)
+SELECT Artistas.Nome, Albuns.Nome FROM Artistas
+INNER JOIN Albuns ON Artistas.IdArtistas = Albuns.IdArtista
+WHERE Albuns.IdArtista = 2;
+
+-- SELECIONAR ALBUNS COM A MESMA DATA DE LANCAMENTO
 SELECT * FROM Albuns WHERE DataLancamento = '25/01/2020';
+
+-- COM INNER JOIN 
+SELECT * FROM Artistas 
+INNER JOIN Albuns ON Artistas.IdArtistas = Albuns.IdArtista
+WHERE DataLancamento = '25/01/2020';
+
 
 SELECT * FROM Albuns WHERE IdEstilo = 2;
 
+
+-- SELECIONAR ALBUNS E ARTISTAS E ORDENAR POR DATA DE LANCAMENTO(MAIS ANTIGO AO MAIS RECENTE)
 SELECT Nome, IdArtista, DataLancamento FROM Albuns
 ORDER BY DataLancamento DESC;
 
+-- COM JOIN
+SELECT Artistas.Nome as NomeArtista, Albuns.Nome as NomeAlbum, DataLancamento
+FROM Artistas 
+INNER JOIN Albuns ON Artistas.IdArtistas = Albuns.IdArtista
+ORDER BY DataLancamento DESC;
+
+-- DESAFIO REALIZAR EXERCICIO COM INNER JOIN COM PELO MENOS 3 TABELAS
+SELECT Artistas.Nome, Estilos.Nome
+FROM Artistas
+INNER JOIN Albuns ON Artistas.IdArtistas = Albuns.IdArtista
+INNER JOIN Estilos ON Estilos.IdEstilos = Albuns.IdEstilo
+WHERE Albuns.IdEstilo = 2; 
 
