@@ -4,7 +4,13 @@ CREATE DATABASE MedGroup_Tarde;
 
 USE MedGroup_Tarde;
 
+USE Biblioteca_Tarde;
+
+DROP DATABASE MedGroup_Tarde;
+
 DROP TABLE Clinica;
+
+
 
 CREATE TABLE Clinica (
 IdClinica		INT PRIMARY KEY IDENTITY,
@@ -42,8 +48,8 @@ IdEspecialidade INT FOREIGN KEY REFERENCES Especialidade (IdEspecialidade)
 CREATE TABLE Prontuario (
 IdProntuario	INT PRIMARY KEY IDENTITY,
 Nome			VARCHAR (255) NOT NULL,
-RG				CHAR (10) NOT NULL UNIQUE,
-CPF				CHAR (11) NOT NULL UNIQUE, 
+RG				CHAR (15) NOT NULL UNIQUE,
+CPF				CHAR (15) NOT NULL UNIQUE, 
 Endereco		VARCHAR (255) NOT NULL,
 DataNascimento	DATE NOT NULL,
 Telefone		VARCHAR (200) NOT NULL,
