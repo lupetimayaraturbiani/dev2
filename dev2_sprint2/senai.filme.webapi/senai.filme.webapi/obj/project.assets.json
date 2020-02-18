@@ -12535,11 +12535,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\49393984808\\Documents\\dev2_sprint2\\senai.filme.webapi\\senai.filme.webapi\\senai.filme.webapi.csproj",
+      "projectUniqueName": "C:\\Users\\49393984808\\Documents\\dev2\\dev2_sprint2\\senai.filme.webapi\\senai.filme.webapi\\senai.filme.webapi.csproj",
       "projectName": "senai.filme.webapi",
-      "projectPath": "C:\\Users\\49393984808\\Documents\\dev2_sprint2\\senai.filme.webapi\\senai.filme.webapi\\senai.filme.webapi.csproj",
+      "projectPath": "C:\\Users\\49393984808\\Documents\\dev2\\dev2_sprint2\\senai.filme.webapi\\senai.filme.webapi\\senai.filme.webapi.csproj",
       "packagesPath": "C:\\Users\\49393984808\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\49393984808\\Documents\\dev2_sprint2\\senai.filme.webapi\\senai.filme.webapi\\obj\\",
+      "outputPath": "C:\\Users\\49393984808\\Documents\\dev2\\dev2_sprint2\\senai.filme.webapi\\senai.filme.webapi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

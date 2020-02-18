@@ -30,11 +30,25 @@ namespace senai.filme.webapi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(GeneroDomain genero)
+        public bool Post(GeneroDomain genero)
         {
-            _generoRepository.Cadastrar(genero);
-
-            return StatusCode(201);
+           return  _generoRepository.Cadastrar("Terror");
         }
+
+        [HttpPut]
+        public IActionResult Put(string Nome, int IdGenero)
+        {
+            _generoRepository.Atualizar("Romance", 3);
+            return StatusCode(200);
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int IdGenero)
+        {
+            _generoRepository.Deletar(4);
+            return StatusCode(200);
+        }
+
+
     }
 }

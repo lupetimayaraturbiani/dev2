@@ -19,6 +19,10 @@ namespace senai.filme.webapi.Interfaces
         /// Cadastraum novo gênero
         /// </summary>
         /// <param name="genero">um gênero</param>
-        void Cadastrar(GeneroDomain genero);
+        bool Cadastrar(string Nome);
+        void Atualizar(string Nome, int IdGenero);
+        void Deletar(int IdGenero);
+
+        GeneroDomain BuscarPorId(int Id);
     }
 }

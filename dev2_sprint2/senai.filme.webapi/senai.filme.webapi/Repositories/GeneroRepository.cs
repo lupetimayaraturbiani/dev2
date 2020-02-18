@@ -12,16 +12,6 @@ namespace senai.filme.webapi.Repositories
     {
         private string StringConexao = "Data Source=DEV601\\SQLEXPRESS;initial catalog=Filmes;user id=sa;pwd=sa@132;";
 
-        public void Cadastrar(GeneroDomain genero)
-        {
-            using (SqlConnection con = new SqlConnection(StringConexao))
-            {
-                string query = "INSERT INTO Genero (Nome) VALUES ('Terror')";
-
-                con.Open();
-
-            }
-        }
 
         public List<GeneroDomain> Listar()
         {
@@ -55,5 +45,90 @@ namespace senai.filme.webapi.Repositories
 
             return generos;
         }
+        public bool Cadastrar(string Nome)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string query = $"INSERT INTO Generos (Nome) VALUES ('{Nome}')";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        GeneroDomain genero = new GeneroDomain
+                        {
+                            IdGenero = Convert.ToInt32((rdr[0])),
+                            Nome = rdr["Nome"].ToString()
+                        };
+
+                    }
+                }
+            }
+            return true;
+        }
+
+        public void Atualizar(string Nome, int IdGenero)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string query = $"UPDATE Generos SET Nome=('{Nome}') WHERE IdGenero=('{IdGenero}')";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        GeneroDomain genero = new GeneroDomain
+                        {
+                            IdGenero = Convert.ToInt32((rdr[0])),
+                            Nome = rdr["Nome"].ToString()
+                        };
+
+                    }
+                }
+            }
+
+        }
+
+        public void Deletar(int IdGenero)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string query = $"DELETE FROM Generos WHERE IdGenero={IdGenero}";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    rdr = cmd.ExecuteReader();
+
+                   }
+                }
+            }
+
+        public GeneroDomain BuscarPorId(int Id)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string query = "SELECT IdGenero"
+            }
+        }
     }
-}
+
+    }
+    }
+
+
