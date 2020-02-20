@@ -33,3 +33,5 @@ VALUES ('Rambo', 1),
 SELECT IdGenero, Nome FROM Generos;
 
 SELECT * FROM Filmes
+
+SELECT IdFilme, Titulo, IdGenero FROM Filmes WHERE IdFilme = 3;

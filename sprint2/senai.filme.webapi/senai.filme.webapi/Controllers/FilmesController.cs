@@ -33,7 +33,8 @@ namespace senai.filme.webapi.Controllers
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
-            FilmeDomain filmeBuscado = new FilmeDomain();
+            
+            FilmeDomain filmeBuscado = _filmeRepository.BuscarPorId(id);
 
             if (filmeBuscado == null)
             {
@@ -75,10 +76,10 @@ namespace senai.filme.webapi.Controllers
             return NotFound("Não rolou mudar isso não parceiro");
         }
 
-        [HttpDelete]
-        public IActionResult DeletarFilme(FilmeDomain filme)
+        [HttpDelete("{id}")]
+        public IActionResult DeletarFilme(int Id)
         {
-            _filmeRepository.DeletarFilme(FilmeDomain filme.IdFilme);
+            _filmeRepository.DeletarFilme(Id);
 
             return Ok("Filme deletado");
         }

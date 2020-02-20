@@ -19,6 +19,6 @@ namespace senai.filme.webapi.Interfaces
 
         void AtualizarFilme(FilmeDomain filme);
 
-        void DeletarFilme(FilmeDomain filme);
+        void DeletarFilme(int Id);
     }
 }

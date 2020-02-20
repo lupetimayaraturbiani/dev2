@@ -10,6 +10,8 @@ namespace senai.filme.webapi.Repositories
 {
     public class FilmeRepository : IFilmeRepository
     {
+        GeneroRepository _generoRepository = new GeneroRepository();
+
         private string StringConexao = "Data Source=DEV601\\SQLEXPRESS;initial catalog=Filmes;user id=sa;pwd=sa@132;";
 
         public List<FilmeDomain> ListarFilmes()
@@ -18,7 +20,8 @@ namespace senai.filme.webapi.Repositories
 
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string query = "SELECT IdFilme, Titulo FROM Filmes";
+                string query = "SELECT IdFilme, Titulo, Generos.IdGenero, Generos.Nome FROM Filmes " +
+                                "INNER JOIN Generos ON Generos.IdGenero = Filmes.IdGenero";
 
                 con.Open();
 
@@ -33,8 +36,12 @@ namespace senai.filme.webapi.Repositories
                         FilmeDomain filme = new FilmeDomain
                         {
                             IdFilme = Convert.ToInt32((rdr[0])),
-                            Titulo = rdr["Titulo"].ToString()
+                            Titulo = rdr["Titulo"].ToString(),
+                            IdGenero = Convert.ToInt32(rdr["IdGenero"]),
+                            Nome = rdr["Nome"].ToString()
                         };
+
+                        filme.Genero = _generoRepository.BuscarPorId(filme.IdGenero);
 
                         filmes.Add(filme);
 
@@ -50,7 +57,7 @@ namespace senai.filme.webapi.Repositories
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string queryPorId = "SELECT IdFilme, Titulo FROM Filmes WHERE IdFilme = @ID";
+                string queryPorId = "SELECT IdFilme, Titulo, IdGenero FROM Filmes WHERE IdFilme = @ID";
 
                 con.Open();
 
@@ -66,18 +73,20 @@ namespace senai.filme.webapi.Repositories
                     {
                         FilmeDomain filme = new FilmeDomain
                         {
-                            IdFilme = Convert.ToInt32(rdr["IdFilme"]),
+                            IdFilme = Convert.ToInt32((rdr[0])),
 
 
-                            Titulo = rdr["Titulo"].ToString()
+                            Titulo = rdr["Titulo"].ToString(),
+
+                            IdGenero = Convert.ToInt32((rdr[2])),
 
                         };
 
                         return filme;
                     }
 
-                    return null;
 
+                    return null;
                 }
             }
         }
@@ -117,7 +126,7 @@ namespace senai.filme.webapi.Repositories
             }
         }
 
-        public void DeletarFilme(FilmeDomain filme)
+        public void DeletarFilme(int Id)
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
@@ -125,7 +134,7 @@ namespace senai.filme.webapi.Repositories
 
                 using (SqlCommand cmd = new SqlCommand(queryDeletar, con))
                 {
-                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.Parameters.AddWithValue("@ID", Id);
 
                     con.Open();
 
