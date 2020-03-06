@@ -43,5 +43,40 @@ namespace Senai.Inlock.WebApi.DatabaseFirst.Controllers
             return StatusCode(201);
         }
 
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Estudios estudioAtualizado)
+        {
+            if (estudioAtualizado != null)
+            {
+                try
+                {
+                    _estudioRepository.Atualizar(id, estudioAtualizado);
+
+                    return NoContent();
+                }
+                catch (Exception e)
+                { 
+                    return BadRequest("Não foi possível atualizar o estudio pois ele não existe");
+                }
+            }
+
+            return NotFound("Estudio não encontrado");
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            Estudios estudioBuscado = _estudioRepository.BuscarPorId(id);
+
+            if (estudioBuscado != null)
+            {
+                _estudioRepository.Deletar(id);
+
+                return Ok($"O Estudio {id} foi deletado com sucesso");
+            }
+
+            return NotFound("Estudio não encontrado");
+
+        }
     }
 }
