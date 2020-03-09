@@ -11,6 +11,22 @@ namespace Senai.Inlock.WebApi.DatabaseFirst.Repositories
     {
         InLockContext ctx = new InLockContext();
 
+        public void Atualizar(int id, Jogos jogoAtualizado)
+        {
+            var jogoBuscado = BuscarPorId(id);
+
+            if (jogoBuscado != null)
+            {
+                jogoBuscado.NomeJogo = jogoAtualizado.NomeJogo;
+                jogoBuscado.Descricao = jogoAtualizado.Descricao;
+                jogoBuscado.Valor = jogoAtualizado.Valor;
+                jogoBuscado.IdEstudio = jogoAtualizado.IdEstudio;
+                ctx.Jogos.Update(jogoBuscado);
+                ctx.SaveChanges();
+            }
+
+        }
+
         public Jogos BuscarPorId(int id)
         {
             return ctx.Jogos.FirstOrDefault(e => e.IdJogo == id);
@@ -19,6 +35,12 @@ namespace Senai.Inlock.WebApi.DatabaseFirst.Repositories
         public void Cadastrar(Jogos novoJogo)
         {
             ctx.Jogos.Add(novoJogo);
+            ctx.SaveChanges();
+        }
+
+        public void Deletar(int id)
+        {
+            ctx.Jogos.Remove(BuscarPorId(id));
             ctx.SaveChanges();
         }
 

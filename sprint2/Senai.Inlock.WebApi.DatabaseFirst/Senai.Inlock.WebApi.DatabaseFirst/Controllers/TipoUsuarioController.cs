@@ -9,6 +9,12 @@ using Senai.Inlock.WebApi.DatabaseFirst.Repositories;
 
 namespace Senai.Inlock.WebApi.DatabaseFirst.Controllers
 {
+
+    [Route("api/[controller]")]
+
+    [Produces("application/json")]
+
+    [ApiController]
     public class TipoUsuarioController : Controller
     {
 
@@ -42,6 +48,34 @@ namespace Senai.Inlock.WebApi.DatabaseFirst.Controllers
         public IActionResult GetById(int id)
         {
             return Ok(_tipoUsuarioRepository.BuscarPorId(id));
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, TipoUsuario tipoAtualizado)
+        {
+            if (tipoAtualizado != null)
+            {
+                _tipoUsuarioRepository.Atualizar(id, tipoAtualizado);
+                return NoContent();
+            }
+
+            return NotFound();
+
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            TipoUsuario tipoBuscado = _tipoUsuarioRepository.BuscarPorId(id);
+
+            if (tipoBuscado != null)
+            {
+                _tipoUsuarioRepository.Deletar(id);
+
+                return Ok($"O Tipo de Usuário {id} foi deletado com sucesso");
+            }
+
+            return NotFound("Tipo de Usuário não encontrado");
         }
     }
 }

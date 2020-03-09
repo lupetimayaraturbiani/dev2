@@ -11,6 +11,20 @@ namespace Senai.Inlock.WebApi.DatabaseFirst.Repositories
     {
         InLockContext ctx = new InLockContext();
 
+        public void Atualizar(int id, Usuarios usuarioAtualizado)
+        {
+            var usuarioBuscado = BuscarPorId(id);
+
+            if (usuarioBuscado != null)
+            {
+                usuarioBuscado.Email = usuarioAtualizado.Email;
+                usuarioBuscado.Senha = usuarioAtualizado.Senha;
+                usuarioBuscado.IdTipoUsuario = usuarioAtualizado.IdTipoUsuario;
+                ctx.Usuarios.Update(usuarioBuscado);
+                ctx.SaveChanges();
+            }
+        }
+
         public Usuarios BuscarPorId(int id)
         {
             return ctx.Usuarios.FirstOrDefault(e => e.IdUsuario == id);
@@ -19,6 +33,12 @@ namespace Senai.Inlock.WebApi.DatabaseFirst.Repositories
         public void Cadastrar(Usuarios novoUsuario)
         {
             ctx.Usuarios.Add(novoUsuario);
+            ctx.SaveChanges();
+        }
+
+        public void Deletar(int id)
+        {
+            ctx.Usuarios.Remove(BuscarPorId(id));
             ctx.SaveChanges();
         }
 

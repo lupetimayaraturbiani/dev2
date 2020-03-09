@@ -9,6 +9,11 @@ using Senai.Inlock.WebApi.DatabaseFirst.Repositories;
 
 namespace Senai.Inlock.WebApi.DatabaseFirst.Controllers
 {
+    [Route("api/[controller]")]
+
+    [Produces("application/json")]
+
+    [ApiController]
     public class UsuariosController : Controller
     {
         private IUsuarioRepository _usuarioRepository;
@@ -41,6 +46,39 @@ namespace Senai.Inlock.WebApi.DatabaseFirst.Controllers
         public IActionResult GetById(int id)
         {
             return Ok(_usuarioRepository.BuscarPorId(id));
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Usuarios usuarioAtualizado)
+        {
+            if (usuarioAtualizado != null)
+            {
+                try
+                {
+                    _usuarioRepository.Atualizar(id, usuarioAtualizado);
+                    return NoContent();
+                }
+                catch (Exception e)
+                {
+                    return BadRequest("Não foi possível atualizar o usuário");
+                }
+            }
+
+            return NotFound("Usuário não encontrado");
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            Usuarios usuarioBuscado = _usuarioRepository.BuscarPorId(id);
+
+            if (usuarioBuscado != null)
+            {
+                _usuarioRepository.Deletar(id);
+                return Ok($"O usuário {id} foi deletado com sucesso!");
+            }
+
+            return NotFound("Usuário não encontrado");
         }
     }
 }
