@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Senai.Senatur.WebApi.DatabaseFirst</name>
+    </assembly>
+    <members>
+        <member name="M:Senai.Senatur.WebApi.DatabaseFirst.Interfaces.IPacoteRepository.Listar">
+            <summary>
+            listar todos os pacotes
+            </summary>
+            <returns>uma lista com todos os pacotes</returns>
+        </member>
+        <member name="M:Senai.Senatur.WebApi.DatabaseFirst.Interfaces.IPacoteRepository.BuscarPorId(System.Int32)">
+            <summary>
+            busca um pacote pelo id
+            </summary>
+            <param name="id"></param>
+            <returns> o pacote buscado </returns>
+        </member>
+        <member name="M:Senai.Senatur.WebApi.DatabaseFirst.Interfaces.IPacoteRepository.Cadastrar(Senai.Senatur.WebApi.DatabaseFirst.Domains.Pacotes)">
+            <summary>
+            cadastrar pacotes
+            </summary>
+            <param name="id"></param>
+            <param name="novoPacote"></param>
+        </member>
+        <member name="M:Senai.Senatur.WebApi.DatabaseFirst.Interfaces.IPacoteRepository.Atualizar(System.Int32,Senai.Senatur.WebApi.DatabaseFirst.Domains.Pacotes)">
+            <summary>
+            atualiza pacotes
+            </summary>
+            <param name="id"></param>
+            <param name="pacoteAtualizado"></param>
+        </member>
+        <member name="M:Senai.Senatur.WebApi.DatabaseFirst.Interfaces.IPacoteRepository.Deletar(System.Int32)">
+            <summary>
+            deleta pacotes
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Senai.Senatur.WebApi.DatabaseFirst.Interfaces.ITiposUsuarioRepository.Listar">
+            <summary>
+            Listar todos os tipos de usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Senai.Senatur.WebApi.DatabaseFirst.Interfaces.IUsuarioRepository.Listar">
+            <summary>
+            listar todos os usuarios
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

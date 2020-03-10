@@ -26,3 +26,5 @@ C:\Users\49393984808\Documents\dev2\sprint2\senatur\Senai.Senatur.WebApi.Databas
 C:\Users\49393984808\Documents\dev2\sprint2\senatur\Senai.Senatur.WebApi.DatabaseFirst\Senai.Senatur.WebApi.DatabaseFirst\obj\Debug\netcoreapp2.1\Senai.Senatur.WebApi.DatabaseFirst.RazorTargetAssemblyInfo.cache
 C:\Users\49393984808\Documents\dev2\sprint2\senatur\Senai.Senatur.WebApi.DatabaseFirst\Senai.Senatur.WebApi.DatabaseFirst\obj\Debug\netcoreapp2.1\Senai.Senatur.WebApi.DatabaseFirst.dll
 C:\Users\49393984808\Documents\dev2\sprint2\senatur\Senai.Senatur.WebApi.DatabaseFirst\Senai.Senatur.WebApi.DatabaseFirst\obj\Debug\netcoreapp2.1\Senai.Senatur.WebApi.DatabaseFirst.pdb
+C:\Users\49393984808\Documents\dev2\sprint2\senatur\Senai.Senatur.WebApi.DatabaseFirst\Senai.Senatur.WebApi.DatabaseFirst\bin\Debug\netcoreapp2.1\Senai.Senatur.WebApi.DatabaseFirst.xml
+C:\Users\49393984808\Documents\dev2\sprint2\senatur\Senai.Senatur.WebApi.DatabaseFirst\Senai.Senatur.WebApi.DatabaseFirst\obj\Debug\netcoreapp2.1\Senai.Senatur.WebApi.DatabaseFirst.xml

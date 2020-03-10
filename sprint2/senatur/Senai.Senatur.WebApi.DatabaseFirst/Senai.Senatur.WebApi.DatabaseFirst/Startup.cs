@@ -26,21 +26,9 @@ namespace Senai.Senatur.WebApi.DatabaseFirst
                 // Define a versão do .NET Core
                 .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 
-            // Documentação Swagger
-​
+            // Documentação Swagger​
             // https://docs.microsoft.com/pt-br/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-2.1&tabs=visual-studio
             // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Senai.Senatur.WebApi", Version = "v1" });
-​
-                // Set the comments path for the Swagger JSON and UI.
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
-            });
-
-
             services
                 // Define a forma de autenticação
                 .AddAuthentication(options =>
@@ -48,34 +36,34 @@ namespace Senai.Senatur.WebApi.DatabaseFirst
                     options.DefaultAuthenticateScheme = "JwtBearer";
                     options.DefaultChallengeScheme = "JwtBearer";
                 })
-​
+
                 // Define os parâmetros de validação do token
                 .AddJwtBearer("JwtBearer", options =>
-                 {
-                     options.TokenValidationParameters = new TokenValidationParameters
-                     {
-                         // Quem está solicitando
-                         ValidateIssuer = true,
-​
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        // Quem está solicitando
+                        ValidateIssuer = true,
+
                         // Quem está validando
                         ValidateAudience = true,
-​
+
                         // Definindo o tempo de expiração
                         ValidateLifetime = true,
-​
+
                         // Forma de criptografia
-                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Senatur-chave-autenticacao")),
-​
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("peoples-chave-autenticacao")),
+
                         // Tempo de expiração do token
                         ClockSkew = TimeSpan.FromMinutes(30),
-​
+
                         // Nome da issuer, de onde está vindo
-                        ValidIssuer = "Senatur.WebApi",
-​
+                        ValidIssuer = "Peoples.WebApi",
+
                         // Nome da audience, de onde está vindo
-                        ValidAudience = "Senatur.WebApi"
-                     };
-                 });
+                        ValidAudience = "Peoples.WebApi"
+                    };
+                });
 
 
 
@@ -90,7 +78,7 @@ namespace Senai.Senatur.WebApi.DatabaseFirst
             }
 
             app.UseSwagger();
-​
+
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
@@ -98,10 +86,10 @@ namespace Senai.Senatur.WebApi.DatabaseFirst
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Senai.InLock.WebApi");
                 c.RoutePrefix = string.Empty;
             });
-​
+            
             // Habilita o uso de autenticação
             app.UseAuthentication();
-​
+            
             // Define o uso do MVC
             app.UseMvc();
 
