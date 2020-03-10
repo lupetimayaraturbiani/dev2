@@ -35,7 +35,7 @@ namespace Senai.InLock.WebApi.CodeFirst.Domains
         [Required(ErrorMessage = "É necessário informr o estudio que produziu o jogo")]
         public int IdEstudio { get; set; }
 
-        [ForeignKey("Idestudio")]
+        [ForeignKey("IdEstudio")]
         public Estudios Estudios { get; set; }
     }
 }
