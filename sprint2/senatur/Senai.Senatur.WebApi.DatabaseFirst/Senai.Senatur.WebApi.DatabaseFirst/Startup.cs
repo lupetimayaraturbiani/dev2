@@ -26,6 +26,17 @@ namespace Senai.Senatur.WebApi.DatabaseFirst
                 // Define a versão do .NET Core
                 .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Senai.Senatur.WebApi", Version = "v1" });
+
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
+
+
             // Documentação Swagger​
             // https://docs.microsoft.com/pt-br/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-2.1&tabs=visual-studio
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -52,16 +63,16 @@ namespace Senai.Senatur.WebApi.DatabaseFirst
                         ValidateLifetime = true,
 
                         // Forma de criptografia
-                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("peoples-chave-autenticacao")),
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Senatur-chave-autenticacao")),
 
                         // Tempo de expiração do token
                         ClockSkew = TimeSpan.FromMinutes(30),
 
                         // Nome da issuer, de onde está vindo
-                        ValidIssuer = "Peoples.WebApi",
+                        ValidIssuer = "Senatur.WebApi",
 
                         // Nome da audience, de onde está vindo
-                        ValidAudience = "Peoples.WebApi"
+                        ValidAudience = "Senatur.WebApi"
                     };
                 });
 
@@ -83,7 +94,7 @@ namespace Senai.Senatur.WebApi.DatabaseFirst
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Senai.InLock.WebApi");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Senai.Senatur.WebApi");
                 c.RoutePrefix = string.Empty;
             });
             

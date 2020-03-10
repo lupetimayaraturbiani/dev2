@@ -42,12 +42,12 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Controllers
                 new Claim(ClaimTypes.Role, usuarioBuscado.IdTipoUsuario.ToString())
             };
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("InLock-chave-autenticacao"));
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Senatur-chave-autenticacao"));
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
-                issuer: "InLock.WebApi",
-                audience: "InLock.WebApi",
+                issuer: "Senatur.WebApi",
+                audience: "Senatur.WebApi",
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds
