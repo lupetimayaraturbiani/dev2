@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace Senai.Senatur.WebApi.DatabaseFirst.Repositories
 {
-    public class TiposUsuarioRepository : ITiposUsuarioRepository
+    public class UsuarioRepository : IUsuarioRepository
     {
         SenaturContext ctx = new SenaturContext();
 
-        public List<TiposUsuario> Listar()
+        public List<Usuarios> Listar()
         {
-            return ctx.TiposUsuario.ToList();
+            return ctx.Usuarios.ToList();
         }
-
-
     }
 }

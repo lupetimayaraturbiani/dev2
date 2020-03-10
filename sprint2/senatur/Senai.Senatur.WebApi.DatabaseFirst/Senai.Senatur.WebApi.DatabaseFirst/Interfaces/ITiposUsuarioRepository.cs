@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Senai.Senatur.WebApi.DatabaseFirst.Interfaces
 {
-    interface ITiposUsuarioReporitory
+    interface ITiposUsuarioRepository
     {
         /// <summary>
         /// Listar todos os tipos de usuario
