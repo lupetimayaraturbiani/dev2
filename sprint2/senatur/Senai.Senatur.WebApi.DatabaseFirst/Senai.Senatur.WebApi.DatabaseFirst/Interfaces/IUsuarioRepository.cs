@@ -14,5 +14,6 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Interfaces
         /// <returns></returns>
         List<Usuarios> Listar();
 
+        Usuarios BuscarPorEmailSenha(string Email, string Senha);
     }
 }

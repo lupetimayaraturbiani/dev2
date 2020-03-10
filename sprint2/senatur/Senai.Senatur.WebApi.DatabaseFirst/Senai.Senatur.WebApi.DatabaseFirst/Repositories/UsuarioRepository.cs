@@ -11,6 +11,13 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Repositories
     {
         SenaturContext ctx = new SenaturContext();
 
+        public Usuarios BuscarPorEmailSenha(string Email, string Senha)
+        {
+            Usuarios usuarioLogado = ctx.Usuarios.FirstOrDefault(u => u.Email == Email && u.Senha == Senha);
+            return usuarioLogado;
+            
+        }
+
         public List<Usuarios> Listar()
         {
             return ctx.Usuarios.ToList();
