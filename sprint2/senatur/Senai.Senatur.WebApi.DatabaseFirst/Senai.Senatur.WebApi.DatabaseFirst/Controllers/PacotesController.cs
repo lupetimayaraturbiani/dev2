@@ -66,5 +66,24 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Controllers
 
             return Ok("O pacote foi deletado com sucesso");
         }
+
+        [Authorize(Roles = "1")]
+        [HttpGet("Ativos/{pacotesAtivos}")]
+        public IActionResult PacotesAtivos(bool pacotesAtivos)
+        {
+            return Ok(_pacotesRepository.PacotesAtivos(pacotesAtivos));
+        }
+
+        [HttpGet("Ordenacao/{ordem}")]
+        [Authorize(Roles = "1")]
+        public IActionResult GetOrderBy(string ordem)
+        {
+            if (ordem != "ASC" && ordem != "DESC")
+            {
+                return BadRequest("Não foi possível ordenar os pacotes. Por favor insira ASC ou DESC na URL");
+            }
+
+            return Ok(_pacotesRepository.ListarOrdenado(ordem));
+        }
     }
 }

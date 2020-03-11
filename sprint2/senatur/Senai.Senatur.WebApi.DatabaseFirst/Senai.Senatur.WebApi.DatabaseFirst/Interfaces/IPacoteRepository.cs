@@ -42,6 +42,8 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Interfaces
         /// <param name="id"></param>
         void Deletar(int id);
 
+        List<Pacotes> PacotesAtivos(bool pacotesAtivos);
 
+        List<Pacotes> ListarOrdenado(string ordem);
     }
 }

@@ -50,5 +50,24 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Repositories
             return ctx.Pacotes.ToList();
         }
 
+        public List<Pacotes> ListarOrdenado(string ordem)
+        {
+
+            if (ordem == "ASC")
+            {
+                return ctx.Pacotes.OrderBy(p => p.Valor).ToList();
+            }
+            return ctx.Pacotes.OrderByDescending(p => p.Valor).ToList();
+        }
+
+        public List<Pacotes> PacotesAtivos(bool pacotesAtivos)
+        {
+            if (pacotesAtivos == true)
+            {
+                return ctx.Pacotes.Where(p => p.Ativo == "Sim").ToList();
+            }
+
+            return ctx.Pacotes.Where(p => p.Ativo == "Não").ToList();
+        }
     }
 }

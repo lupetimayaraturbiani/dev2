@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "f005e293-cf90-464b-b72b-87720e34207c",
+		"name": "Senai.Senatur.Tarde",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pacotes.Get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNTgzOTU5MzYxLCJpc3MiOiJTZW5hdHVyLldlYkFwaSIsImF1ZCI6IlNlbmF0dXIuV2ViQXBpIn0.SbzRRlv_iYX7L33DByRqsogEsCeJGIp6FUtR5J6JJ9Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Pacotes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Pacotes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pacotes.Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNTgzOTU5MzYxLCJpc3MiOiJTZW5hdHVyLldlYkFwaSIsImF1ZCI6IlNlbmF0dXIuV2ViQXBpIn0.SbzRRlv_iYX7L33DByRqsogEsCeJGIp6FUtR5J6JJ9Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nomePacote\": \"VENEZA - 8 DIAS / 7 DIÁRIAS\",\r\n        \"descricao\": \" O que não falta em Itália são opções. Prova disso são as museus, \\r\\n\\t\\tas atrações e as construções históricas e românticas que dão um charme mais que especial à região. A cidade, sinônimo de beleza, \\r\\n\\t\\tum dos destinos mais procurados por turistas \\r\\n\\t\\tbrasileiros e estrangeiros.\",\r\n        \"dataIda\": \"2019-12-26T00:00:00\",\r\n        \"dataVolta\": \"2020-01-02T00:00:00\",\r\n        \"valor\": 1935.00,\r\n        \"ativo\": \"Sim\",\r\n        \"nomeCidade\": \"Veneza\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/Pacotes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Pacotes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pacotes.GetById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNTgzOTUxNjkxLCJpc3MiOiJTZW5hdHVyLldlYkFwaSIsImF1ZCI6IlNlbmF0dXIuV2ViQXBpIn0.ADA4uCNAIXVcghFpYi-kqismBiXYVVftMN1T1CksOkY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Pacotes/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Pacotes",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pacotes.Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNTgzOTU5MzYxLCJpc3MiOiJTZW5hdHVyLldlYkFwaSIsImF1ZCI6IlNlbmF0dXIuV2ViQXBpIn0.SbzRRlv_iYX7L33DByRqsogEsCeJGIp6FUtR5J6JJ9Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Pacotes/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Pacotes",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pacotes.Put",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNTgzOTUxNjkxLCJpc3MiOiJTZW5hdHVyLldlYkFwaSIsImF1ZCI6IlNlbmF0dXIuV2ViQXBpIn0.ADA4uCNAIXVcghFpYi-kqismBiXYVVftMN1T1CksOkY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nomePacote\": \"BONITO VIA CAMPO GRANDE - 3 PASSEIOS - 5 DIAS / 4 DIÁRIAS\",\r\n        \"descricao\": \"Localizado no estado de Mato Grosso do Sul e ao sul do Pantanal, Bonito possui centenas de cachoeiras, \\r\\n\\t\\trios e lagos de águas cristalinas, além de cavernas inundadas, paredões rochosos e uma infinidade de peixes.\\r\\n\\t\\tOs aventureiros costumam render-se facilmente a esse destino regado por trilhas ecológicas, passeios de bote e \\r\\n\\t\\tdescidas de rapel pelas inúmeras quedas d água da região.VENHA CONHECER ESSA BELDADE!\",\r\n        \"dataIda\": \"2020-03-31T00:00:00\",\r\n        \"dataVolta\": \"2020-04-01T00:00:00\",\r\n        \"valor\": 1200.00,\r\n        \"ativo\": \"Sim\",\r\n        \"nomeCidade\": \"Bonito\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/Pacotes/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Pacotes",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuarios.Listar(Com autorização)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNTgzOTUxMTc4LCJpc3MiOiJTZW5hdHVyLldlYkFwaSIsImF1ZCI6IlNlbmF0dXIuV2ViQXBpIn0.JIx2nQXEgyv5b2tm1PfI9NFHY3I3Fcl8iE2B1D0u7c8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login.Usuarios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\" : \"admin@admin.com\",\n\t\"senha\" : \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/Login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TiposUsuario.Listar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNTgzOTUxNjkxLCJpc3MiOiJTZW5hdHVyLldlYkFwaSIsImF1ZCI6IlNlbmF0dXIuV2ViQXBpIn0.ADA4uCNAIXVcghFpYi-kqismBiXYVVftMN1T1CksOkY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/TiposUsuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"TiposUsuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pacotes.Ordenacao",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNTgzOTU5MzYxLCJpc3MiOiJTZW5hdHVyLldlYkFwaSIsImF1ZCI6IlNlbmF0dXIuV2ViQXBpIn0.SbzRRlv_iYX7L33DByRqsogEsCeJGIp6FUtR5J6JJ9Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Pacotes/Ordenacao/ASC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Pacotes",
+						"Ordenacao",
+						"ASC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pacotes.AtivosENaoAtivos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Pacotes/Ativos/true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Pacotes",
+						"Ativos",
+						"true"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
