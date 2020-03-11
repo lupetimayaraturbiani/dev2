@@ -15,13 +15,13 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Repositories
         {
             Pacotes pacoteBuscado = BuscarPorId(id);
 
-            pacoteAtualizado.NomePacote = pacoteBuscado.NomePacote;
-            pacoteAtualizado.Descricao = pacoteBuscado.Descricao;
-            pacoteAtualizado.DataIda = pacoteBuscado.DataIda;
-            pacoteAtualizado.DataVolta = pacoteBuscado.DataVolta;
-            pacoteAtualizado.Valor = pacoteBuscado.Valor;
-            pacoteAtualizado.Ativo = pacoteBuscado.Ativo;
-            pacoteAtualizado.NomeCidade = pacoteBuscado.Ativo;
+            pacoteBuscado.NomePacote = pacoteAtualizado.NomePacote;
+            pacoteBuscado.Descricao = pacoteAtualizado.Descricao;
+            pacoteBuscado.DataIda = pacoteAtualizado.DataIda;
+            pacoteBuscado.DataVolta = pacoteAtualizado.DataVolta;
+            pacoteBuscado.Valor = pacoteAtualizado.Valor;
+            pacoteBuscado.Ativo = pacoteAtualizado.Ativo;
+            pacoteBuscado.NomeCidade = pacoteAtualizado.NomeCidade;
 
             ctx.Pacotes.Update(pacoteBuscado);
             ctx.SaveChanges();
@@ -41,7 +41,8 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Repositories
 
         public void Deletar(int id)
         {
-
+            ctx.Pacotes.Remove(BuscarPorId(id));
+            ctx.SaveChanges();
         }
 
         public List<Pacotes> Listar()

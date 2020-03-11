@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.Senatur.WebApi.DatabaseFirst.Domains;
@@ -13,6 +14,7 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PacotesController : ControllerBase
     {
         private IPacoteRepository _pacotesRepository;
@@ -28,6 +30,7 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Controllers
             return Ok(_pacotesRepository.Listar());
         }
 
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(Pacotes novoPacote)
         {
@@ -36,12 +39,16 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Controllers
             return StatusCode(201);
         }
 
+
+        [Authorize(Roles = "1")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
             return Ok(_pacotesRepository.BuscarPorId(id));
         }
 
+
+        [Authorize(Roles = "1")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Pacotes pacoteAtualizado)
         {
@@ -50,6 +57,8 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Controllers
             return NoContent();
         }
 
+
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

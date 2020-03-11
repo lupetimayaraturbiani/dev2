@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.Senatur.WebApi.DatabaseFirst.Interfaces;
@@ -12,6 +13,7 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TiposUsuarioController : ControllerBase
     {
         private ITiposUsuarioRepository _tiposUsuarioRepository;
@@ -20,6 +22,8 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Controllers
         {
             _tiposUsuarioRepository = new TiposUsuarioRepository();
         }
+
+        [Authorize(Roles = "1")]
 
         [HttpGet]
         public IActionResult Get()

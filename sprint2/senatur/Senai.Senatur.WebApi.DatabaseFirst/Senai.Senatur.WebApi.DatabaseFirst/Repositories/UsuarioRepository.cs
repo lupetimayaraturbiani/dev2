@@ -1,4 +1,5 @@
-﻿using Senai.Senatur.WebApi.DatabaseFirst.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using Senai.Senatur.WebApi.DatabaseFirst.Domains;
 using Senai.Senatur.WebApi.DatabaseFirst.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace Senai.Senatur.WebApi.DatabaseFirst.Repositories
 
         public List<Usuarios> Listar()
         {
-            return ctx.Usuarios.ToList();
+            return ctx.Usuarios.Include(u => u.IdTipoUsuarioNavigation).ToList();
         }
     }
 }
