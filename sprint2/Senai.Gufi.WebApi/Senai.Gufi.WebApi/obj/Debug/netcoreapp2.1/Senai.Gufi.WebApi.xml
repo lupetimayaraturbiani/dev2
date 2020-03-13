@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Senai.Gufi.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Senai.Gufi.WebApi.Controllers.LoginController.#ctor">
+            <summary>
+            Instancia este objeto para que haja a referência aos métodos no repositório
+            </summary>
+        </member>
+        <member name="M:Senai.Gufi.WebApi.Controllers.LoginController.Post(Senai.Gufi.WebApi.ViewModels.LoginViewModel)">
+            <summary>
+            Valida o usuário
+            </summary>
+            <param name="login">Objeto login que contém o e-mail e a senha do usuário</param>
+            <returns>Retorna um token com as informações do usuário</returns>
+        </member>
+    </members>
+</doc>

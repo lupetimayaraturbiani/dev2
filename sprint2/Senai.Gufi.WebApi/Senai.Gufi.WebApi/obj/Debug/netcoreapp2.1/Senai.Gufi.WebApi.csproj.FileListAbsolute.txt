@@ -26,3 +26,5 @@ C:\Users\49393984808\Documents\dev2\sprint2\Senai.Gufi.WebApi\Senai.Gufi.WebApi\
 C:\Users\49393984808\Documents\dev2\sprint2\Senai.Gufi.WebApi\Senai.Gufi.WebApi\obj\Debug\netcoreapp2.1\Senai.Gufi.WebApi.RazorTargetAssemblyInfo.cache
 C:\Users\49393984808\Documents\dev2\sprint2\Senai.Gufi.WebApi\Senai.Gufi.WebApi\obj\Debug\netcoreapp2.1\Senai.Gufi.WebApi.dll
 C:\Users\49393984808\Documents\dev2\sprint2\Senai.Gufi.WebApi\Senai.Gufi.WebApi\obj\Debug\netcoreapp2.1\Senai.Gufi.WebApi.pdb
+C:\Users\49393984808\Documents\dev2\sprint2\Senai.Gufi.WebApi\Senai.Gufi.WebApi\bin\Debug\netcoreapp2.1\Senai.Gufi.WebApi.xml
+C:\Users\49393984808\Documents\dev2\sprint2\Senai.Gufi.WebApi\Senai.Gufi.WebApi\obj\Debug\netcoreapp2.1\Senai.Gufi.WebApi.xml

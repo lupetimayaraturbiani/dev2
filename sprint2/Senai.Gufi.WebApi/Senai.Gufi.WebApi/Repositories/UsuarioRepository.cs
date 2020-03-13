@@ -30,7 +30,9 @@ namespace Senai.Gufi.WebApi.Repositories
 
         public Usuario BuscarPorEmailSenha(string email, string senha)
         {
-            throw new NotImplementedException();
+            Usuario usuarioLogado = ctx.Usuario.FirstOrDefault(u => u.Email == email && u.Senha == senha);
+            
+            return usuarioLogado;
         }
 
         public Usuario BuscarPorId(int id)

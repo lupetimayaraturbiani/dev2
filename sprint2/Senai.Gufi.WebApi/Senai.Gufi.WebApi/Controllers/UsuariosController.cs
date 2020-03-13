@@ -19,7 +19,7 @@ namespace Senai.Gufi.WebApi.Controllers
 
         public UsuariosController()
         {
-            _usuarioRepository = new UsuarioRepository;
+            _usuarioRepository = new UsuarioRepository();
         }
 
         [HttpGet]

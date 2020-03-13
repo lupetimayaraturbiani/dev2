@@ -1,8 +1,16 @@
 -- CRIAR BANCO DE DADOS 
 CREATE DATABASE Gufi_Tarde;
 
+
+USE Biblioteca_Tarde;
+DROP DATABASE Gufi_Tarde;
+
 USE Gufi_Tarde;
 
+
+
+ ALTER TABLE  Usuario
+ ALTER COLUMN DataNascimento DATETIME2;
 
 -- CRIAR TABELAS DO BANCO DE DADOS
 CREATE TABLE TipoUsuario (

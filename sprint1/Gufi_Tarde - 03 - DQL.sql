@@ -41,7 +41,7 @@ CASE
 END AS TipoAcesso
 FROM Evento
 INNER JOIN Instituicao ON Instituicao.IdInstituicao = Evento.IdInstituicao
-INNER JOIN Presenca ON Presenca.IdPresenca = Presenca
+INNER JOIN Presenca ON Presenca.IdPresenca = Presenca.IdEvento
 WHERE Presenca.Situacao = 'Confirmada';
 
 SELECT Evento.NomeEvento, Evento.DataEvento, Evento.Descricao, Evento.AcessoLivre, 
